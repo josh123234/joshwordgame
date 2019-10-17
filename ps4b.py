@@ -28,6 +28,7 @@ def compChooseWord(hand, wordList, n):
     # Create a new variable to store the best word seen so far (initially None)  
     bestWord = None
     # For each word in the wordList
+    print('\n Computer is thinking...(needs 45 seconds)')
     for word in wordList:
         # If you can construct the word from your hand
         if isValidWord(word, hand, wordList):
@@ -91,7 +92,7 @@ def compPlayHand(hand, wordList, n):
                 print('"' + word + '" earned ' + str(score) + ' points. Total: ' + str(totalScore) + ' points')              
                 # Update hand and show the updated hand to the user
                 hand = updateHand(hand, word)
-                print()
+                #print()
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
     print('Total score: ' + str(totalScore) + ' points.')
 

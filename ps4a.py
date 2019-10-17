@@ -24,14 +24,16 @@ def loadWords():
     Depending on the size of the word list, this function may
     take a while to finish.
     """
-    print("Loading word list from file...")
+    #print("Loading word list from file...")
+    print("Loading game...")
     # inFile: file
     inFile = open(WORDLIST_FILENAME, 'r')
     # wordList: list of strings
     wordList = []
     for line in inFile:
         wordList.append(line.strip().lower())
-    print("  ", len(wordList), "words loaded.")
+    # print("  ", len(wordList), "words loaded.")
+    print("Okay, we're ready.")
     return wordList
 
 def getFrequencyDict(sequence):
@@ -100,7 +102,7 @@ def displayHand(hand):
     for letter in hand.keys():
         for j in range(hand[letter]):
              print(letter,end=" ")       # print all on the same line
-    print()                             # print an empty line
+    #print()                             # print an empty line
 
 #
 # Problem #2: Make sure you understand how this function works and what it does!
@@ -237,7 +239,7 @@ def playHand(hand, wordList, n):
         print('Current hand:',end=" ")
         displayHand(hand)
         # Ask user for input
-        word = input("Make a word from letters in your hand, or simply enter '.' ")
+        word = input("Make a word from letters in your hand. If you can't, just enter '.' ")
         # If the input is a single period:
         if word == '.':
             # End the game (break out of the loop)
@@ -252,7 +254,7 @@ def playHand(hand, wordList, n):
             else:
                 # Tell the user how many points the word earned, and the updated total score, in one line followed by a blank line
                 totalscore += getWordScore(word, n)
-                print(word, 'earned you',getWordScore(word, n), 'points. Your total score is:', str(totalscore), '\n')        
+                print('"' + word + '"', 'earned you',getWordScore(word, n), 'points. Your total score is:', str(totalscore))        
                 # Update the hand 
                 hand = updateHand(hand, word)
 
